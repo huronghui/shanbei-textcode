@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="green">#DFD2C1</color>
+    <color name="gray">#ffb5b5b5</color>
+    <color name="red">#fff68f50</color>
+    <color name="black">#ff333333</color>
+    <color name="white">#ffffffff</color>
+
+    <color name="background">#ffffffff</color>
+    <color name="notSelected">#ffcdcdcd</color>
+    <color name="selected">#ffc71521</color>
+    <color name="editBackgroung">#ffe5e5e5</color>
+    <color name="lineColor">#ffcccccc</color>
+    <color name="editLine">#ff989898</color>
+    <color name="textColor">#ff6b6b6b</color>
+    <color name="titleColor">#fff4b565</color>
+    <color name="collectionColor">#ffb7b7b7</color>
+    <color name="userLineColor">#ffe2e2e2</color>
+    <color name="itemBackground">#fff0f0f0</color>
+    <color name="nicknameColor">#ff915e8b</color>
+    <color name="comment_dialog">#ff3e3e3e</color>
+    <color name="comment_bg_pressed">#ff2b2b2b</color>
+    <color name="comment_line_color">#ff252525</color>
+    <color name="comment_bg_reply">#fff9f9f9</color>
+    <color name="comment_text_more">#ffa6a6a6</color>
+    <color name="filter_category_text">#ffb4b4b4</color>
+    <color name="filter_category_line">#ffe7e7e7</color>
+    <color name="filter_category_title">#ff6b6b6b</color>
+    <color name="filter_history_text">#ff666666</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 下拉刷新时，颜色值 -->
+    <color name="swiperefresh_color1">#ff00ddff</color>
+    <color name="swiperefresh_color2">#ffffbb33</color>
+    <color name="swiperefresh_color3">#ffff4444</color>
+    <color name="swiperefresh_color4">#ffaa66cc</color>
+
+    <color name="main_green">#000000</color>
+    <color name="actionbar_background">@color/main_green</color>
+
+
+    <drawable name="actionbar_background">#0077d9</drawable>
+    <drawable name="activated_background_color">#00a7ff</drawable>
+    <color name="done_text_color_normal">#ff333333</color>
+    <color name="done_text_color_disabled">#ffcccccc</color>
+    <color name="blue">#DFD2C1</color>
+    <color name="darker_blue">#DFD2C1</color>
+    <color name="date_picker_text_normal">#ff999999</color>
+
+
+    <color name="drawer_menu_item_background_normal">#e2e2e2</color>
+    <color name="drawer_menu_item_background_pressed">#ebeceb</color>
+
+    <color name="window_background">#EBEBEB</color>
+    <color name="actionbar_item_background_normal">@color/transparent</color>
+    <color name="actionbar_item_background_pressed">#DFD2C1</color>
+    <color name="campaign_title">#DFD2C1</color>
+    <color name="campaign_title_black">#CDAA7D</color>
+    <color name="primary">#FF03A9F4</color>
+    <color name="primary_dark">#FF0288D1</color>
+    <color name="status_bar_color">@color/primary_dark</color>
+
+    <color name="colorSunrise">#0D4A6A</color>
+    <color name="colorSunset">#201D45</color>
+</resources>
