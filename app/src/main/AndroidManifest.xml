@@ -14,7 +14,7 @@
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainSelectActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Main">
@@ -24,6 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.lesson.LessonSelectActivity"
+                  android:launchMode="singleTask"
+                  android:theme="@style/AppTheme.Main"/>
+
+        <activity android:name=".ui.letter.letterActivity"
+                  android:launchMode="singleTask"
+                  android:theme="@style/AppTheme.Main"/>
     </application>
 
 </manifest>

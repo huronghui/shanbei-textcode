@@ -62,4 +62,8 @@
 
     <color name="colorSunrise">#0D4A6A</color>
     <color name="colorSunset">#201D45</color>
+
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="half_black">#808080</color>
+    <color name="black_semi_transparent">#B2000000</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.hrh.shanybe_text.adapter;
+package com.example.hrh.shanybe_text.ui.main.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

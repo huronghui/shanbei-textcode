@@ -10,6 +10,8 @@ import com.example.hrh.shanybe_text.AppManager;
 import com.example.hrh.shanybe_text.listener.BaseViewInterface;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by hrh on 2016/4/22.
  */
@@ -17,6 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        ButterKnife.bind(this);
 //        aCache = ACache.get(BaseActivity.this);
 //        mSetting = Setting.getInstance();
         if (getLayoutId() != 0) {
@@ -74,5 +77,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             tintManager.setStatusBarTintEnabled(true);
             tintManager.setStatusBarTintResource(color);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        ButterKnife.unbind(this);
     }
 }

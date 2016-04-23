@@ -14,13 +14,20 @@ public class AppManager {
     }
 
     /**
-     * 单一实例
+     * 单一实例,加了线程保护
      */
     public static AppManager getAppManager() {
-        if (instance == null) {
-            instance = new AppManager();
+
+        AppManager appManager = instance;
+        if (appManager == null) {
+            synchronized (AppManager.class) {
+                if(instance == null) {
+                    instance = new AppManager();
+                }
+            }
+            appManager = instance;
         }
-        return instance;
+        return appManager;
     }
 
     /**

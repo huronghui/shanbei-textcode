@@ -1,39 +1,28 @@
-package com.example.hrh.shanybe_text.ViewHolder;
+package com.example.hrh.shanybe_text.viewholder;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ViewHolder extends RecyclerView.ViewHolder{
+import com.example.hrh.shanybe_text.listener.OnRecyclerClickListerner;
+
+public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 	private SparseArray<View> mView = null;
 	private int mPosition;
 	private View mCurrentView;
+	private OnRecyclerClickListerner onRecyclerClickListerner;
 
 
-
-//	public ViewHolder(Context context, ViewGroup viewGroup, int LayoutId,
-//			int position) {
-//		this.mPosition = position;
-//		this.mView = new SparseArray<View>();
-//		mCurrentView = LayoutInflater.from(context).inflate(LayoutId, viewGroup,false);
-//		mCurrentView.setTag(this);
-//	}
-
-	public ViewHolder(View view) {
+	public ViewHolder(View view, OnRecyclerClickListerner listerner) {
 		super(view);
 		this.mView = new SparseArray<View>();
 		mCurrentView = view;
-//		this.mPosition = position;
-//		this.mView = new SparseArray<View>();
-//		mCurrentView = LayoutInflater.from(context).inflate(LayoutId, viewGroup, false);
-//		mCurrentView.setTag(this);
-
+		view.setOnClickListener(this);
+		this.onRecyclerClickListerner = listerner;
 	}
 	/**
 	 * 拿到一个ViewHolder的实例对象
@@ -42,13 +31,8 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 	 * @param layoutid
 	 * @return
 	 */
-	public static ViewHolder get(Context context, ViewGroup parent,
-									int layoutid) {
-
-		View view = LayoutInflater.from(context).
-				inflate(layoutid, parent, false);
-
-		return new ViewHolder(view);
+	public static ViewHolder get(Context context, ViewGroup parent,View layoutid, OnRecyclerClickListerner listerner) {
+		return new ViewHolder(layoutid, listerner);
 
 	}
 	
@@ -75,35 +59,27 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 	 * @param text
 	 * @return
 	 */
-	public ViewHolder setText(int LayoutId, String text) {
+	public ViewHolder setText(int LayoutId, String text, int mPosition) {
 		TextView view = getView(LayoutId);
 		if (text != null) {
 			view.setText(text);
+			view.setTag(mPosition);
 		}
 		return this;
 	}
 
-//	public ViewHolder setCricleImage(int LayoutId, String url,Context context) {
-//		ImageView view = getView(LayoutId);
-//
-//		return this;
-//	}
-//
-//	public ViewHolder setImage(int LayoutId, String url) {
-//		ImageView view = getView(LayoutId);
-////		view.setTag(url);
-////		url = Appconfig.BASIC_URL + url + "/cp_file";
-//
-//		return this;
-//	}
-//
-//	public ViewHolder setNativeImage(int LayoutId, int id) {
-//		ImageView view = getView(LayoutId);
-//		view.setImageResource(id);
-//		return this;
-//	}
+	@Override
+	public void onClick(View v) {
+		if(onRecyclerClickListerner != null){
+			onRecyclerClickListerner.onItemClick(v, getPosition());
+		}
+	}
 
-//	public int getPosition() {
-//		return mPosition;
-//	}
+	/**
+	 * 设置Item点击监听
+	 * @param listener
+	 */
+	public void setOnItemClickListener(OnRecyclerClickListerner listener){
+		this.onRecyclerClickListerner = listener;
+	}
 }

@@ -6,4 +6,8 @@
     <string name="main_menu">选择单元</string>
     <string name="setting">设置</string>
     <string name="about" />
+    <string name="lession">第一节</string>
+    <string name="unit">第一章</string>
+    <string name="highcode">高亮代码</string>
+    <string name="selectcode">筛选单词</string>
 </resources>
