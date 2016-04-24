@@ -1,8 +1,12 @@
 package com.example.hrh.shanybe_text.ui.letter.model;
 
+import android.util.Log;
+import android.widget.TextView;
+
 import com.example.hrh.shanybe_text.bean.letter.LetterBean;
 import com.example.hrh.shanybe_text.ui.lesson.model.LessonSelectCallBack;
 import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
+import com.example.hrh.shanybe_text.util.TextJustification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +24,14 @@ public class LetterModel {
 
 //    List<LetterBean> mainMenuModels = new ArrayList<LetterBean>();
 
-    private void fetchDataCache(Observer<LetterBean> observable) {
+    private void fetchDataCache(Observer<LetterBean> observable, final TextView textView) {
 //        String[] name = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"};
         Observable.just(getinfo())
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String s) {
-                        return s + " 课程";
+//                        return TextJustification.justifyword(s, textView, textView.getMeasuredWidth());
+                        return s;
                     }
                 })
                 .map(new Func1<String, LetterBean>() {
@@ -53,7 +58,7 @@ public class LetterModel {
                 .subscribe(observable);
     }
 
-    public void fetchData(final LetterSelectCallBack callBack) {
+    public void fetchData(TextView textView, final LetterSelectCallBack callBack) {
 //        mainMenuModels.clear();
         Observer<LetterBean> observer = new Observer<LetterBean>() {
             @Override public void onCompleted() {
@@ -70,7 +75,7 @@ public class LetterModel {
             }
         };
 
-        fetchDataCache(observer);
+        fetchDataCache(observer, textView);
     }
 
     private String getinfo() {

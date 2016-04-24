@@ -1,5 +1,7 @@
 package com.example.hrh.shanybe_text.ui.letter.presenter;
 
+import android.widget.TextView;
+
 import com.example.hrh.shanybe_text.bean.letter.LetterBean;
 import com.example.hrh.shanybe_text.ui.lesson.model.LessonSelectCallBack;
 import com.example.hrh.shanybe_text.ui.letter.model.LetterModel;
@@ -22,8 +24,8 @@ public class LetterSelectPresenter {
         letterModel = new LetterModel();
     }
 
-    public void getInfo() {
-        letterModel.fetchData(new LetterSelectCallBack() {
+    public void getInfo(TextView textView) {
+        letterModel.fetchData(textView, new LetterSelectCallBack() {
             @Override
             public void success() {
                 letterView.hideLoading();
