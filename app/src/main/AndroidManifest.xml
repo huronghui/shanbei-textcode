@@ -29,7 +29,7 @@
                   android:launchMode="singleTask"
                   android:theme="@style/AppTheme.Main"/>
 
-        <activity android:name=".ui.letter.letterActivity"
+        <activity android:name=".ui.letter.LetterActivity"
                   android:launchMode="singleTask"
                   android:theme="@style/AppTheme.Main"/>
     </application>

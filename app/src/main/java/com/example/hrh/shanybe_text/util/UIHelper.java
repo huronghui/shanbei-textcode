@@ -2,9 +2,10 @@ package com.example.hrh.shanybe_text.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.example.hrh.shanybe_text.ui.lesson.LessonSelectActivity;
-import com.example.hrh.shanybe_text.ui.letter.letterActivity;
+import com.example.hrh.shanybe_text.ui.letter.LetterActivity;
 import com.example.hrh.shanybe_text.ui.main.MainSelectActivity;
 
 /**
@@ -25,8 +26,9 @@ public class UIHelper {
      * 显示Lesson选择界面
      * @param context
      */
-    public static void showLessonActivity(Context context) {
+    public static void showLessonActivity(Context context, Bundle bundle) {
         Intent intent = new Intent(context, LessonSelectActivity.class);
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 
@@ -34,8 +36,9 @@ public class UIHelper {
      * 显示Letter显示界面
      * @param context
      */
-    public static void showLetterActivity(Context context) {
-        Intent intent = new Intent(context, letterActivity.class);
+    public static void showLetterActivity(Context context, Bundle bundle) {
+        Intent intent = new Intent(context, LetterActivity.class);
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 }

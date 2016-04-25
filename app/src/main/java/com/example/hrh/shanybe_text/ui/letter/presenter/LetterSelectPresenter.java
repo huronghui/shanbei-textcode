@@ -24,8 +24,8 @@ public class LetterSelectPresenter {
         letterModel = new LetterModel();
     }
 
-    public void getInfo(TextView textView) {
-        letterModel.fetchData(textView, new LetterSelectCallBack() {
+    public void getInfo(TextView textView, String letter) {
+        letterModel.fetchData(letter, textView, new LetterSelectCallBack() {
             @Override
             public void success() {
                 letterView.hideLoading();

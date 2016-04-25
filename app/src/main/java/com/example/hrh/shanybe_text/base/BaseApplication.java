@@ -30,6 +30,8 @@ public class BaseApplication extends Application{
         else {
             cacheDir = getApplicationContext().getCacheDir().toString();
         }
+
+        mAppContext = this;
     }
 
     public BaseApplication() {
@@ -43,15 +45,7 @@ public class BaseApplication extends Application{
      * 确保 Application 的实例只有一个
      * @return
      */
-    public BaseApplication getInstance() {
-        BaseApplication temp = mAppContext;
-        if(temp == null) {
-            synchronized (BaseApplication.class) {
-                if(temp == null) {
-                    temp = new BaseApplication();
-                }
-            }
-        }
-        return temp;
+    public static BaseApplication getInstance() {
+       return mAppContext;
     }
 }

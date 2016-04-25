@@ -1,6 +1,7 @@
 package com.example.hrh.shanybe_text.ui.main;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -30,9 +31,12 @@ import com.example.hrh.shanybe_text.adapter.UnitAdater;
 import com.example.hrh.shanybe_text.base.BaseActivity;
 import com.example.hrh.shanybe_text.listener.HidingScrollListener;
 import com.example.hrh.shanybe_text.listener.OnRecyclerClickListerner;
+import com.example.hrh.shanybe_text.ui.lesson.LessonSelectActivity;
 import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
 import com.example.hrh.shanybe_text.ui.main.presenter.MainSelectPresenter;
 import com.example.hrh.shanybe_text.ui.main.view.MainView;
+import com.example.hrh.shanybe_text.util.CreateLessonInfos;
+import com.example.hrh.shanybe_text.util.CreateWordInfos;
 import com.example.hrh.shanybe_text.util.UIHelper;
 import com.example.hrh.shanybe_text.weight.DividerItemDecoration;
 
@@ -134,6 +138,8 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
 
     @Override
     public void initData() {
+//        CreateLessonInfos.createLessonInfos();
+//        CreateWordInfos.createScallopWords();
         presenter = new MainSelectPresenter(this);
         onRefresh();
 
@@ -151,6 +157,8 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
         swiprefresh.setRefreshing(false);
         mAdapter.setData(list);
         mAdapter.notifyDataSetChanged();
+
+
     }
 
     @Override
@@ -183,7 +191,6 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
 
         View headerLayout = navView.inflateHeaderView(R.layout.nav_header_main);
         RelativeLayout headerBackground = (RelativeLayout) headerLayout.findViewById(R.id.header_background);
-
         headerBackground.setBackground(ContextCompat.getDrawable(this, R.drawable.header_back_day));
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
@@ -215,7 +222,9 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
                 @Override
                 public void onItemClick(View view, int data) {
                     Toast.makeText(MainSelectActivity.this, mAdapter.getDatas().get(data).getText(), Toast.LENGTH_LONG).show();
-                    UIHelper.showLessonActivity(MainSelectActivity.this);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(LessonSelectActivity.LessonBelong, mAdapter.getDatas().get(data).getText());
+                    UIHelper.showLessonActivity(MainSelectActivity.this, bundle);
                 }
             };
 }

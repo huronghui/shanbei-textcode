@@ -20,8 +20,8 @@ public class LessonSelectPresenter {
         lessonSelect = new LessonSelect();
     }
 
-    public void getInfo() {
-        lessonSelect.fetchData(new LessonSelectCallBack() {
+    public void getInfo(String unit) {
+        lessonSelect.fetchData(unit, new LessonSelectCallBack() {
             @Override
             public void success(List<MainMenuModel> list) {
                 lessonView.hideLoading(list);

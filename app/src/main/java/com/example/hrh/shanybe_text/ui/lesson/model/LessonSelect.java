@@ -2,6 +2,10 @@ package com.example.hrh.shanybe_text.ui.lesson.model;
 
 import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
 import com.example.hrh.shanybe_text.ui.main.model.MainSelectCallBack;
+import com.example.hrh.shanybe_text.util.DataBaseManager;
+import com.shanbei.greendao.DaoSession;
+import com.shanbei.greendao.ScallopLessonInfo;
+import com.shanbei.greendao.ScallopLessonInfoDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +24,13 @@ public class LessonSelect {
     List<MainMenuModel> mainMenuModels = new ArrayList<MainMenuModel>();
 
 
-    private void fetchDataCache(Observer<MainMenuModel> observable) {
+    private void fetchDataCache(Observer<MainMenuModel> observable, String unit) {
         String[] name = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"};
-        Observable.from(name)
+        Observable.from(getLessonInfo(unit)).distinct()
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String s) {
-                        return s + " 课程";
+                        return s;
                     }
                 })
                 .map(new Func1<String, MainMenuModel>() {
@@ -53,7 +57,7 @@ public class LessonSelect {
                 .subscribe(observable);
     }
 
-    public void fetchData(final LessonSelectCallBack callBack) {
+    public void fetchData(String unit, final LessonSelectCallBack callBack) {
         mainMenuModels.clear();
         Observer<MainMenuModel> observer = new Observer<MainMenuModel>() {
             @Override public void onCompleted() {
@@ -70,7 +74,20 @@ public class LessonSelect {
             }
         };
 
-        fetchDataCache(observer);
+        fetchDataCache(observer, unit);
+    }
+
+    private List<String> getLessonInfo(String unit) {
+        DaoSession mDaoSession = DataBaseManager.getInstance().getDaoSession();
+        ScallopLessonInfoDao lessonInfoDao = mDaoSession.getScallopLessonInfoDao();
+        List<ScallopLessonInfo> infos = lessonInfoDao.queryBuilder().where(ScallopLessonInfoDao.Properties.UnitBelong.eq(unit)).list();
+        List<String> result = new ArrayList<>();
+
+        for(ScallopLessonInfo scallopLessonInfo : infos) {
+            result.add(scallopLessonInfo.getLessonList());
+        }
+//        Set<String> infoString = new HashSet<>();
+        return result;
     }
 
 }

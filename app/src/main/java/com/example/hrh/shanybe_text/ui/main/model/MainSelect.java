@@ -2,8 +2,15 @@ package com.example.hrh.shanybe_text.ui.main.model;
 
 import android.view.View;
 
+import com.example.hrh.shanybe_text.util.DataBaseManager;
+import com.shanbei.greendao.DaoSession;
+import com.shanbei.greendao.ScallopLessonInfo;
+import com.shanbei.greendao.ScallopLessonInfoDao;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import rx.Observable;
 import rx.Observer;
@@ -21,12 +28,12 @@ public class MainSelect {
 
 
     private void fetchDataCache(Observer<MainMenuModel> observable) {
-        String[] name = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"};
-        Observable.from(name)
+//        String[] name = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"};
+        Observable.from(getLessonInfo()).distinct()
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String s) {
-                        return s + " 单元";
+                        return s;
                     }
                 })
                 .map(new Func1<String, MainMenuModel>() {
@@ -45,7 +52,7 @@ public class MainSelect {
                 .flatMap(new Func1<MainMenuModel, Observable<MainMenuModel>>() {
                     @Override
                     public Observable<MainMenuModel> call(MainMenuModel mainMenuModel) {
-                        return Observable.just(mainMenuModel);
+                        return Observable.just(mainMenuModel).distinct();
                     }
                 })
                 .subscribeOn(Schedulers.io())
@@ -71,5 +78,18 @@ public class MainSelect {
         };
 
         fetchDataCache(observer);
+    }
+
+    private List<String> getLessonInfo() {
+        DaoSession mDaoSession = DataBaseManager.getInstance().getDaoSession();
+        ScallopLessonInfoDao lessonInfoDao = mDaoSession.getScallopLessonInfoDao();
+        List<ScallopLessonInfo> infos = lessonInfoDao.loadAll();
+        List<String> result = new ArrayList<>();
+
+        for(ScallopLessonInfo scallopLessonInfo : infos) {
+            result.add(scallopLessonInfo.getUnitBelong());
+        }
+//        Set<String> infoString = new HashSet<>();
+        return result;
     }
 }

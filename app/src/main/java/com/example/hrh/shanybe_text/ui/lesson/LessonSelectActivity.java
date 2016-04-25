@@ -1,5 +1,6 @@
 package com.example.hrh.shanybe_text.ui.lesson;
 
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import com.example.hrh.shanybe_text.base.BaseActivity;
 import com.example.hrh.shanybe_text.listener.OnRecyclerClickListerner;
 import com.example.hrh.shanybe_text.ui.lesson.presenter.LessonSelectPresenter;
 import com.example.hrh.shanybe_text.ui.lesson.view.LessonView;
+import com.example.hrh.shanybe_text.ui.letter.LetterActivity;
 import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
 import com.example.hrh.shanybe_text.util.UIHelper;
 
@@ -26,6 +28,7 @@ import butterknife.ButterKnife;
  */
 public class LessonSelectActivity extends BaseActivity implements LessonView, SwipeRefreshLayout.OnRefreshListener{
 
+    public static String LessonBelong = "LessonSelectBelong";
     protected LessionAdapter mAdapter;
     private LessonSelectPresenter presenter;
 
@@ -36,6 +39,7 @@ public class LessonSelectActivity extends BaseActivity implements LessonView, Sw
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
 
+    private String unit;
     @Override
     protected int getLayoutId() {
 
@@ -63,7 +67,8 @@ public class LessonSelectActivity extends BaseActivity implements LessonView, Sw
 
     @Override
     public void initData() {
-
+        Bundle bundle = getIntent().getExtras();
+        unit = bundle.getString(LessonBelong);
         presenter = new LessonSelectPresenter(this);
         onRefresh();
 
@@ -112,12 +117,14 @@ public class LessonSelectActivity extends BaseActivity implements LessonView, Sw
                 @Override
                 public void onItemClick(View view, int data) {
                     Toast.makeText(LessonSelectActivity.this, data + "", Toast.LENGTH_LONG).show();
-                    UIHelper.showLetterActivity(LessonSelectActivity.this);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(LetterActivity.LetterStirng, mAdapter.getDatas().get(data).getText());
+                    UIHelper.showLetterActivity(LessonSelectActivity.this, bundle);
                 }
             };
 
     @Override
     public void onRefresh() {
-        presenter.getInfo();
+        presenter.getInfo(unit);
     }
 }
