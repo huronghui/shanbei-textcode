@@ -1,5 +1,7 @@
 package com.example.hrh.shanybe_text.ui.main.model;
 
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
+
 import java.util.List;
 
 /**

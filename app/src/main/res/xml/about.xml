@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/app_name">
+
+        <Preference
+            android:key="Star"
+            android:summary="给个Star，鼓励作者(๑¯◡¯๑)"
+            android:title="点赞"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="关于作者">
+        <Preference
+            android:key="blog"
+            android:summary="http://huronghui.github.io"
+            android:title="个人博客"/>
+        <Preference
+            android:key="github"
+            android:summary="https://github.com/huronghui"
+            android:title="我的Github"/>
+        <Preference
+            android:key="email"
+            android:summary="huronghuihrh@gmail.com"
+            android:title="邮箱"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="版权">
+        <Preference
+            android:summary="图片素材来源于网络，版权属于原作者"
+            android:title="素材来源"/>
+    </PreferenceCategory>
+</PreferenceScreen>

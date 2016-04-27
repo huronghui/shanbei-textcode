@@ -1,7 +1,6 @@
 package com.example.hrh.shanybe_text.ui.lesson.model;
 
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
-import com.example.hrh.shanybe_text.ui.main.model.MainSelectCallBack;
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 import com.example.hrh.shanybe_text.util.DataBaseManager;
 import com.shanbei.greendao.DaoSession;
 import com.shanbei.greendao.ScallopLessonInfo;
@@ -25,7 +24,7 @@ public class LessonSelect {
 
 
     private void fetchDataCache(Observer<MainMenuModel> observable, String unit) {
-        String[] name = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"};
+
         Observable.from(getLessonInfo(unit)).distinct()
                 .map(new Func1<String, String>() {
                     @Override
@@ -84,7 +83,7 @@ public class LessonSelect {
         List<String> result = new ArrayList<>();
 
         for(ScallopLessonInfo scallopLessonInfo : infos) {
-            result.add(scallopLessonInfo.getLessonList());
+            result.add(scallopLessonInfo.getLessonList() + "  " + scallopLessonInfo.getTitle().replace("\n", " "));
         }
 //        Set<String> infoString = new HashSet<>();
         return result;

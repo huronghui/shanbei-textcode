@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="main_menu">选择单元</string>
     <string name="setting">设置</string>
-    <string name="about" />
+    <string name="about">关于</string>
     <string name="lession">第一节</string>
     <string name="unit">第一章</string>
     <string name="highcode">高亮代码</string>

@@ -3,7 +3,7 @@ package com.example.hrh.shanybe_text.ui.lesson.presenter;
 import com.example.hrh.shanybe_text.ui.lesson.model.LessonSelect;
 import com.example.hrh.shanybe_text.ui.lesson.model.LessonSelectCallBack;
 import com.example.hrh.shanybe_text.ui.lesson.view.LessonView;
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 
 import java.util.List;
 

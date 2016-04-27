@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.hrh.shanybe_text.ui.about.AboutActivity;
 import com.example.hrh.shanybe_text.ui.lesson.LessonSelectActivity;
 import com.example.hrh.shanybe_text.ui.letter.LetterActivity;
 import com.example.hrh.shanybe_text.ui.main.MainSelectActivity;
@@ -39,6 +40,12 @@ public class UIHelper {
     public static void showLetterActivity(Context context, Bundle bundle) {
         Intent intent = new Intent(context, LetterActivity.class);
         intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    public static void showAboutActivity(Context context) {
+        Intent intent = new Intent(context, AboutActivity.class);
+//        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 }

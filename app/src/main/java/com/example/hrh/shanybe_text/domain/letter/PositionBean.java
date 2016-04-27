@@ -1,4 +1,4 @@
-package com.example.hrh.shanybe_text.bean.letter;
+package com.example.hrh.shanybe_text.domain.letter;
 
 public class PositionBean {
 	private int start;

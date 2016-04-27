@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="setting">设置</string>
-    <string name="about" />
+    <string name="about">关于</string>
     <string name="unit">第一章</string>
 </resources>

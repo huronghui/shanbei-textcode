@@ -1,6 +1,6 @@
 package com.example.hrh.shanybe_text.ui.main.presenter;
 
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 import com.example.hrh.shanybe_text.ui.main.model.MainSelect;
 import com.example.hrh.shanybe_text.ui.main.model.MainSelectCallBack;
 import com.example.hrh.shanybe_text.ui.main.view.MainView;
@@ -43,4 +43,6 @@ public class MainSelectPresenter {
             }
         });
     }
+
+
 }

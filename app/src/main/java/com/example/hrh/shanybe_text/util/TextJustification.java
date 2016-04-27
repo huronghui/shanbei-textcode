@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class TextJustification {
 
-	public static void justify(TextView textView, float contentWidth) {
+	public static String justify(TextView textView, float contentWidth) {
 		String text=textView.getText().toString();
 		String tempText;
 		String resultText = "";
@@ -23,6 +23,7 @@ public class TextJustification {
 		}
 
 		textView.setText(resultText);
+		return resultText;
 	}
 	//分开每个段落
 	public static ArrayList<String> paraBreak(String text, TextView textview) {

@@ -1,15 +1,12 @@
 package com.example.hrh.shanybe_text.ui.letter.presenter;
 
+import android.text.SpannableString;
 import android.widget.TextView;
 
-import com.example.hrh.shanybe_text.bean.letter.LetterBean;
-import com.example.hrh.shanybe_text.ui.lesson.model.LessonSelectCallBack;
+import com.example.hrh.shanybe_text.domain.letter.LetterBean;
 import com.example.hrh.shanybe_text.ui.letter.model.LetterModel;
 import com.example.hrh.shanybe_text.ui.letter.model.LetterSelectCallBack;
 import com.example.hrh.shanybe_text.ui.letter.view.LetterView;
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
-
-import java.util.List;
 
 /**
  * Created by hrh on 2016/4/23.
@@ -40,6 +37,47 @@ public class LetterSelectPresenter {
             public void update(LetterBean bean) {
                letterView.showLoading(bean);
             }
+
+            @Override
+            public void showText(SpannableString spannableString) {
+
+            }
         });
+    }
+
+    public void searchData(String text) {
+        letterModel.search(text);
+    }
+    public void getWordInfo(String letter) {
+        letterModel.fetchWordData(letter);
+    }
+
+    public void highCode(CharSequence text) {
+        letterModel.highData(text, new LetterSelectCallBack() {
+
+            @Override
+            public void success() {
+
+            }
+
+            @Override
+            public void failed() {
+
+            }
+
+            @Override
+            public void update(LetterBean list) {
+//                letterView.showLoading(list);
+            }
+
+            @Override
+            public void showText(SpannableString spannableString) {
+                letterView.showTextSpan(spannableString);
+            }
+        });
+    }
+
+    public void setWordSelect(int selectedIndex) {
+        letterModel.setWordLevel(selectedIndex);
     }
 }

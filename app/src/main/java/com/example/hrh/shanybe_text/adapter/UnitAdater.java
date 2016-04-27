@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.hrh.shanybe_text.R;
 import com.example.hrh.shanybe_text.viewholder.ViewHolder;
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 
 /**
  * Created by hrh on 2016/4/22.

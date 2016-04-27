@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WaterView">
+        <attr name="WaterView_src" format="reference"/>
+        <attr name="WaterView_speed" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="FlameView">
+        <attr name="FlameView_flameNum" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="JustifyTextView">
+        <attr name="lineSpacing" format="dimension" />
+    </declare-styleable>
+
+</resources>

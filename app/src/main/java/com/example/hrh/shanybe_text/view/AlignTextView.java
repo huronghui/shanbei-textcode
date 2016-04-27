@@ -1,22 +1,16 @@
-package com.example.hrh.shanybe_text.weight;
+package com.example.hrh.shanybe_text.view;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.Layout;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.hrh.shanybe_text.R;
-import com.example.hrh.shanybe_text.util.TextJustification;
 
 import java.util.ArrayList;
 import java.util.List;

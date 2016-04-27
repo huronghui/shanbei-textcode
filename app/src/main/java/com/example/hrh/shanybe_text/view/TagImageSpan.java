@@ -1,4 +1,4 @@
-package com.example.hrh.shanybe_text.weight;
+package com.example.hrh.shanybe_text.view;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

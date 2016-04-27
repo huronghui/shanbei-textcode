@@ -1,21 +1,17 @@
 package com.example.hrh.shanybe_text.ui.main.model;
 
-import android.view.View;
-
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 import com.example.hrh.shanybe_text.util.DataBaseManager;
 import com.shanbei.greendao.DaoSession;
 import com.shanbei.greendao.ScallopLessonInfo;
 import com.shanbei.greendao.ScallopLessonInfoDao;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -25,7 +21,7 @@ import rx.schedulers.Schedulers;
 public class MainSelect {
 
     List<MainMenuModel> mainMenuModels = new ArrayList<MainMenuModel>();
-
+    private int wordLevel;
 
     private void fetchDataCache(Observer<MainMenuModel> observable) {
 //        String[] name = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"};
@@ -92,4 +88,6 @@ public class MainSelect {
 //        Set<String> infoString = new HashSet<>();
         return result;
     }
+
+
 }

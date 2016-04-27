@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.hrh.shanybe_text.R;
 import com.example.hrh.shanybe_text.adapter.LessionAdapter;
@@ -15,7 +14,7 @@ import com.example.hrh.shanybe_text.listener.OnRecyclerClickListerner;
 import com.example.hrh.shanybe_text.ui.lesson.presenter.LessonSelectPresenter;
 import com.example.hrh.shanybe_text.ui.lesson.view.LessonView;
 import com.example.hrh.shanybe_text.ui.letter.LetterActivity;
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 import com.example.hrh.shanybe_text.util.UIHelper;
 
 import java.util.List;
@@ -116,9 +115,9 @@ public class LessonSelectActivity extends BaseActivity implements LessonView, Sw
             new OnRecyclerClickListerner() {
                 @Override
                 public void onItemClick(View view, int data) {
-                    Toast.makeText(LessonSelectActivity.this, data + "", Toast.LENGTH_LONG).show();
                     Bundle bundle = new Bundle();
-                    bundle.putString(LetterActivity.LetterStirng, mAdapter.getDatas().get(data).getText());
+                    String[] titles = mAdapter.getDatas().get(data).getText().split("  ");
+                    bundle.putString(LetterActivity.LetterStirng, titles[0]);
                     UIHelper.showLetterActivity(LessonSelectActivity.this, bundle);
                 }
             };

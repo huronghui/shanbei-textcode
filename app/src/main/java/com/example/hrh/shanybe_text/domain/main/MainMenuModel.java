@@ -1,4 +1,4 @@
-package com.example.hrh.shanybe_text.ui.main.model;
+package com.example.hrh.shanybe_text.domain.main;
 
 import android.os.Parcel;
 import android.os.Parcelable;

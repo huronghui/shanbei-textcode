@@ -24,7 +24,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.hrh.shanybe_text.R;
 import com.example.hrh.shanybe_text.adapter.UnitAdater;
@@ -32,13 +31,11 @@ import com.example.hrh.shanybe_text.base.BaseActivity;
 import com.example.hrh.shanybe_text.listener.HidingScrollListener;
 import com.example.hrh.shanybe_text.listener.OnRecyclerClickListerner;
 import com.example.hrh.shanybe_text.ui.lesson.LessonSelectActivity;
-import com.example.hrh.shanybe_text.ui.main.model.MainMenuModel;
+import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 import com.example.hrh.shanybe_text.ui.main.presenter.MainSelectPresenter;
 import com.example.hrh.shanybe_text.ui.main.view.MainView;
-import com.example.hrh.shanybe_text.util.CreateLessonInfos;
-import com.example.hrh.shanybe_text.util.CreateWordInfos;
 import com.example.hrh.shanybe_text.util.UIHelper;
-import com.example.hrh.shanybe_text.weight.DividerItemDecoration;
+import com.example.hrh.shanybe_text.view.DividerItemDecoration;
 
 import java.util.List;
 
@@ -202,8 +199,10 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_set:
+                UIHelper.showAboutActivity(this);
                 break;
             case R.id.nav_about:
+                UIHelper.showAboutActivity(this);
                 break;
             case R.id.nav_city:
                 break;
@@ -221,7 +220,6 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
             new OnRecyclerClickListerner() {
                 @Override
                 public void onItemClick(View view, int data) {
-                    Toast.makeText(MainSelectActivity.this, mAdapter.getDatas().get(data).getText(), Toast.LENGTH_LONG).show();
                     Bundle bundle = new Bundle();
                     bundle.putString(LessonSelectActivity.LessonBelong, mAdapter.getDatas().get(data).getText());
                     UIHelper.showLessonActivity(MainSelectActivity.this, bundle);
