@@ -9,10 +9,10 @@ import com.example.hrh.shanybe_text.domain.main.MainMenuModel;
 /**
  * Created by hrh on 2016/4/22.
  */
-public class UnitAdater extends CommonRecyclerAdapter<MainMenuModel>{
+public class UnitAdapter extends CommonRecyclerAdapter<MainMenuModel>{
 
 
-    public UnitAdater(Context context, int LayoutId) {
+    public UnitAdapter(Context context, int LayoutId) {
         super(context, LayoutId);
     }
 

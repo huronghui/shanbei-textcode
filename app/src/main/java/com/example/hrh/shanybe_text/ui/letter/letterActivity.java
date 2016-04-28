@@ -109,7 +109,6 @@ public class LetterActivity extends BaseFullScreanActivity implements LetterView
                     public void onSelected(int selectedIndex, String item) {
                         Log.d("LetterActivity", "[Dialog]selectedIndex: " + selectedIndex + ", item: " + item);
                         presenter.setWordSelect(selectedIndex - 1);
-                        Toast.makeText(LetterActivity.this, "hhh" + selectedIndex + item, Toast.LENGTH_SHORT).show();
                     }
                 });
                 new AlertDialog.Builder(LetterActivity.this)

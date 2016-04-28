@@ -198,9 +198,9 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_set:
-                UIHelper.showAboutActivity(this);
-                break;
+//            case R.id.nav_set:
+//                UIHelper.showAboutActivity(this);
+//                break;
             case R.id.nav_about:
                 UIHelper.showAboutActivity(this);
                 break;
