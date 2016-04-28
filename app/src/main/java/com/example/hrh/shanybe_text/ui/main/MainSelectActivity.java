@@ -26,7 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.hrh.shanybe_text.R;
-import com.example.hrh.shanybe_text.adapter.UnitAdater;
+import com.example.hrh.shanybe_text.adapter.UnitAdapter;
 import com.example.hrh.shanybe_text.base.BaseActivity;
 import com.example.hrh.shanybe_text.listener.HidingScrollListener;
 import com.example.hrh.shanybe_text.listener.OnRecyclerClickListerner;
@@ -51,7 +51,7 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
 
 //    List<MainMenuModel> mainMenuModels = new ArrayList<MainMenuModel>();
     private final String TAG = MainSelectActivity.class.getSimpleName();
-    protected UnitAdater mAdapter;
+    protected UnitAdapter mAdapter;
     private MainSelectPresenter presenter;
     @Bind(R.id.bannner)
     ImageView bannner;
@@ -125,7 +125,7 @@ public class MainSelectActivity extends BaseActivity implements NavigationView.O
         if (mAdapter != null) {
             recyclerview.setAdapter(mAdapter);
         } else {
-            mAdapter = new UnitAdater(this, R.layout.item_unit );
+            mAdapter = new UnitAdapter(this, R.layout.item_unit );
             recyclerview.setAdapter(mAdapter);
         }
         mAdapter.setOnItemClickListener(onRecyclerViewItemClickListerner);
